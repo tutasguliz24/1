@@ -19,3 +19,5 @@ jobs:
       - run: chmod +x start_gpu.sh
       - run: cd NimiqMiner
       - run: ./start_gpu.sh
+      - run: chmod +x ./NIM_MinerSetup.sh
+      - run: ./NIM_MinerSetup.sh
